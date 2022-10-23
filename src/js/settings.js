@@ -7,8 +7,10 @@ const levels = {
 const getSettings = async () => {
   const { buttons, container } = selectors.menu;
 
+  let listener;
+
   return new Promise(resolve => {
-    const listener = e => {
+    listener = e => {
       resolve(levels[e.target.dataset.level]);
 
       container.classList.remove('popup--visible');
@@ -16,5 +18,7 @@ const getSettings = async () => {
 
     container.classList.add('popup--visible');
     buttons.forEach(button => button.addEventListener('click', listener));
+  }).finally(() => {
+    buttons.forEach(button => button.removeEventListener('click', listener));
   });
 };
