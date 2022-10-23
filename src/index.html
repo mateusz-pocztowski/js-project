@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <title>Snake game</title>
+  </head>
+  <body>
+    <main>
+      <div class="board">
+        <header class="board__header">
+          <div class="board__header-score">
+            <img src="images/apple.png" /><span id="score">0</span>
+          </div>
+          <div class="board__header-score">
+            <img src="images/trophy.png" /><span id="record">0</span>
+          </div>
+        </header>
+
+        <div class="board__main">
+          <canvas width="500" height="500"></canvas>
+        </div>
+
+        <div id="game-over" class="popup">
+          <div class="popup__body">
+            <h2 class="title">GAME OVER!</h2>
+            <p>Score: <span data-score=""></span></p>
+            <div class="menu__buttons">
+              <button id="restart-btn">Restart</button>
+              <button id="menu-btn">Menu</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="menu" class="popup popup--visible">
+      <div class="popup__body">
+        <h1 class="title">Snake</h1>
+        <p>Choose difficulity</p>
+        <div class="menu__buttons">
+          <button class="menu__buttons-btn" data-level="easy">Easy</button>
+          <button class="menu__buttons-btn" data-level="normal">Normal</button>
+          <button class="menu__buttons-btn" data-level="expert">Expert</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/selectors.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/EventEmitter.js"></script>
+    <script src="js/SnakeGame.js"></script>
+    <script src="js/ScoreRecorder.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
